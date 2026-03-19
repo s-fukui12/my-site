@@ -1,0 +1,83 @@
+/* 1. ページ全体の設定 */
+body {
+    font-family: "Hiragino Sans", "Meiryo", sans-serif;
+    /* 薄いベージュの背景に、白いドット模様を入れるテクニック */
+    background-color: #fdfaf5; 
+    background-image: radial-gradient(#ffffff 20%, transparent 20%);
+    background-size: 20px 20px;
+    color: #5a4a42; /* 真っ黒ではなく、優しい焦げ茶色に */
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* 2. ヘッダーのデザイン */
+header {
+    background-color: #a8dadc; /* 優しい水色 */
+    color: #457b9d;           /* 文字も少し濃い青にして馴染ませる */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.1em; /* 文字の間隔を少し広げてゆったりさせる */
+}
+
+/* 3. 画像のデザイン（プロ仕様の書き方） */
+.profile-img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;  /* 大きすぎないように制限 */
+    height: auto;
+    border-radius: 15px; /* 碧くんの写真が綺麗に見える角丸 */
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 4. メインコンテンツの箱 */
+main {
+    max-width: 600px;
+    margin: -30px auto 40px; /* ヘッダーに少し重ねて立体感を出す */
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    /* 2重の枠線でノートっぽさを演出 */
+    border: 4px double #a8dadc;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* 5. リストのデザイン */
+ul {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* 6. ボタンのデザイン */
+.btn {
+    display: block;       /* 中央寄せしやすくする */
+    width: fit-content;   /* 文字幅に合わせる */
+    margin: 20px auto;    /* 上下に隙間、左右中央 */
+    padding: 15px 30px;
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+/* ボタンにマウスを乗せた時 */
+.btn:hover {
+    background-color: #e68a00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
