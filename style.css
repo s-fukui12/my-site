@@ -81,3 +81,31 @@ li {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+/* 記事カードのデザイン */
+.post-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px; /* カード同士の隙間 */
+    transition: 0.3s;
+    text-align: left; /* 文字は左寄せ */
+}
+
+/* カードにマウスを乗せた時に少し浮かす */
+.post-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.post-card h3 {
+    margin: 0 0 5px 0;
+    color: #457b9d;
+    font-size: 1.2rem;
+}
+
+.post-card .date {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 10px;
+}
