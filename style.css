@@ -1,11 +1,11 @@
 /* 1. ページ全体の設定 */
 body {
-    font-family: "Hiragino Sans", "Meiryo", sans-serif;
-    /* 薄いベージュの背景に、白いドット模様を入れるテクニック */
+    /* font-family を書き換えます */
+    font-family: 'Zen Maru Gothic', serif;
     background-color: #fdfaf5; 
     background-image: radial-gradient(#ffffff 20%, transparent 20%);
     background-size: 20px 20px;
-    color: #5a4a42; /* 真っ黒ではなく、優しい焦げ茶色に */
+    color: #5a4a42;
     line-height: 1.8;
     margin: 0;
 }
