@@ -21,13 +21,13 @@
 <main>
     <h2>碧くんの最近の様子</h2>
     
-    <article class="post-card">
+    <article class="post-card fade-in">
         <h3>初めての公園！</h3>
         <p class="date">2026年3月19日</p>
         <p>今日は近くの公園までお散歩。滑り台を見てびっくりしていました！</p>
     </article>
 
-    <article class="post-card">
+    <article class="post-card fade-in">
         <h3>離乳食をもりもり</h3>
         <p class="date">2026年3月18日</p>
         <p>人参のペーストがお気に入り。一口食べるごとにニコニコでした。</p>
@@ -36,4 +36,15 @@
     <a href="https://www.instagram.com/ao_fsy?igsh=MW9jMDFtaTZjNXpreQ==" class="btn" target="_blank">インスタで成長を見る</a>
 </main>
 </body>
+<script>
+    window.onload = function() {
+        // fade-inという名前がついた要素をすべて探す
+        const targets = document.querySelectorAll('.fade-in');
+        
+        // 見つけた要素に、1つずつ「show」というクラスを追加する
+        targets.forEach((target) => {
+            target.classList.add('show');
+        });
+    };
+</script>
 </html>
