@@ -232,3 +232,22 @@ li {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
 }
+
+/* 画面の横幅が600px以下（スマホなど）の時の設定 */
+@media (max-width: 600px) {
+    /* ギャラリーを3列から2列に変える */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 8px; /* 隙間も少し狭くする */
+    }
+
+    /* メインコンテンツの左右の余白を少し削る */
+    main {
+        padding: 15px;
+    }
+
+    /* 見出しの文字をスマホに合うサイズに少し小さくする */
+    h2 {
+        font-size: 1.5rem;
+    }
+}
