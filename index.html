@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>">
 </head>
+<div id="lightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
 <body>
     <header>
         <h1>碧くんの成長日記</h1>
@@ -19,32 +23,95 @@
     </header>
 
 <main>
+    <h2>思い出アルバム</h2>
+    <div class="gallery-grid">
+        <a href="自撮り.JPEG" class="gallery-item"><img src="自撮り.JPEG" alt="碧くんの写真1"></a>
+        <a href="泣き顔.JPEG" class="gallery-item"><img src="泣き顔.JPEG" alt="碧くんの写真2"></a>
+        <a href="祖父母と.JPEG" class="gallery-item"><img src="祖父母と.JPEG" alt="碧くんの写真3"></a>
+        <a href="祖父母と②.JPEG" class="gallery-item"><img src="祖父母と②.JPEG" alt="碧くんの写真4"></a>
+        </div>
+    </section>
+
     <h2>碧くんの最近の様子</h2>
-    
+    <section class="gallery-section fade-in">
+
     <article class="post-card fade-in">
-        <h3>初めての公園！</h3>
-        <p class="date">2026年3月19日</p>
-        <p>今日は近くの公園までお散歩。滑り台を見てびっくりしていました！</p>
+        <h3>相模大塚のカフェ</h3>
+        <p class="date">2026年3月31日</p>
+        <p>パンとピザを食べました。<br>明日から保育園。ドキドキ。</p>
     </article>
 
     <article class="post-card fade-in">
-        <h3>離乳食をもりもり</h3>
-        <p class="date">2026年3月18日</p>
-        <p>人参のペーストがお気に入り。一口食べるごとにニコニコでした。</p>
+        <h3>公園の遊具での成長</h3>
+        <p class="date">2026年3月29日</p>
+        <p>滑り台よりゆるい傾斜の遊具を一人で降りられるようになりました。<br>そこからは永遠に上り降りの繰り返し。</p>
+    </article>
+
+    <article class="post-card fade-in">
+        <h3>初めての胃腸炎</h3>
+        <p class="date">2026年3月23日</p>
+        <p>朝から下痢と嘔吐が止まらず。。。一家全員苦しみました。</p>
+    </article>
+
+    <article class="post-card fade-in">
+        <h3>お気に入りのおもちゃ</h3>
+        <p class="date">2026年3月20日</p>
+        <p>じぃじ、ばぁばに買ってもらった車のおもちゃがお気に入り<br>毎日手で走らせて遊んでます。</p>
     </article>
 
     <a href="https://www.instagram.com/ao_fsy?igsh=MW9jMDFtaTZjNXpreQ==" class="btn" target="_blank">インスタで成長を見る</a>
 </main>
+<section id="contact" class="fade-in">
+    <h2>お問い合わせ</h2>
+    <div class="post-card" style="text-align: center;">
+        <p>碧くんへの応援メッセージや、サイトの感想などお待ちしています！</p>
+        
+        <a href="mailto:your-email@example.com" class="contact-btn">
+            ✉️ メールを送る
+        </a>
+        
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+            ※お返事には数日いただく場合があります。
+        </p>
+    </div>
+</section>
 </body>
 <script>
-    window.onload = function() {
-        // fade-inという名前がついた要素をすべて探す
-        const targets = document.querySelectorAll('.fade-in');
-        
-        // 見つけた要素に、1つずつ「show」というクラスを追加する
-        targets.forEach((target) => {
-            target.classList.add('show');
+    // 画面に現れたら実行する「監視役」の設定
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // もし要素が画面内に入ったら
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
         });
-    };
+    }, {
+        threshold: 0.1 // 10%見えたら実行
+    });
+
+    // fade-inという名前がついた要素をすべて監視対象にする
+    document.querySelectorAll('.fade-in').forEach(target => {
+        observer.observe(target);
+    });
+
+    // さっきの監視設定の下に追記
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // ギャラリー内の写真をクリックした時の動き
+    document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault(); // ページ移動を防止
+        const imgSrc = item.getAttribute('href'); // hrefの中身（画像のパス）を取得
+        lightboxImg.src = imgSrc; // 拡大用の箱に画像をセット
+        lightbox.style.display = 'flex'; // 箱を表示！
+        });
+    });
+
+    // 閉じるボタンか背景をクリックしたら閉じる
+    lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    });
 </script>
 </html>

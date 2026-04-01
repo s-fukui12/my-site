@@ -38,16 +38,42 @@ header h1 {
 
 /* 4. メインコンテンツの箱 */
 main {
-    max-width: 600px;
-    margin: -30px auto 40px; /* ヘッダーに少し重ねて立体感を出す */
+    max-width: 800px; /* 横幅が広がりすぎないように制限 */
+    margin: 0 auto;   /* 中央寄せ */
+    padding: 20px;
     background-color: white;
-    padding: 30px;
     border-radius: 20px;
     /* 2重の枠線でノートっぽさを演出 */
     border: 4px double #a8dadc;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
+/* セクション（日記、ギャラリーなど）の区切りをハッキリさせる */
+section {
+    margin-bottom: 60px; /* セクション同士の余白を広く取る */
+}
+
+/* 見出しのデザインを少し豪華に */
+h2 {
+    text-align: center;
+    color: #457b9d;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* 見出しの下に短い線を引く */
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #a8dadc;
+    border-radius: 3px;
+}
 /* 5. リストのデザイン */
 ul {
     padding-left: 20px;
@@ -120,4 +146,89 @@ li {
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
+}
+/* ギャラリー全体のパディング */
+.gallery-section {
+    padding: 20px 0;
+}
+
+/* ★グリッドレイアウト（魔法のCSS） */
+.gallery-grid {
+    display: grid;
+    /* 横に3列並べる（スマホでは自動で2列など調整されます） */
+    grid-template-columns: repeat(3, 1fr); 
+    /* 写真同士の隙間 */
+    gap: 10px;
+}
+
+/* 写真の枠の設定 */
+.gallery-item {
+    display: block;
+    aspect-ratio: 1 / 1; /* 正方形にする */
+    overflow: hidden; /* はみ出した部分は隠す */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+/* マウスを乗せた時の動き */
+.gallery-item:hover {
+    transform: scale(1.05); /* 少し大きくする */
+}
+
+/* 写真自体の設定 */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 枠に合わせて綺麗にトリミング */
+    transition: 0.3s;
+}
+/* 拡大時の背景（黒く透ける感じ） */
+.lightbox {
+    display: none; /* 最初は隠しておく */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 拡大された画像 */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* 閉じるボタン */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.contact-btn {
+    display: inline-block;
+    background-color: #e63946; /* 目立つ赤系 */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #d62828;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
 }
